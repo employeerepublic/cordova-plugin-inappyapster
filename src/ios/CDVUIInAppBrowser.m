@@ -64,7 +64,8 @@ static CDVUIInAppBrowser* instance = nil;
 
 - (void)onReset
 {
-    [self close:nil];
+    //[self close:nil];
+    NSLog(@".onReset() - not closing the browser window");
 }
 
 - (void)close:(CDVInvokedUrlCommand*)command
@@ -95,6 +96,12 @@ static CDVUIInAppBrowser* instance = nil;
     NSString* options = [command argumentAtIndex:2 withDefault:@"" andClass:[NSString class]];
 
     self.callbackId = command.callbackId;
+    NSLog(@"open: callbackId %@", command.callbackId);
+    if (self.alreadyOpened != nil) {
+        return;
+    } else {
+        self.alreadyOpened = @"DONE";
+    }
 
     if (url != nil) {
 #ifdef __CORDOVA_4_0_0
@@ -238,10 +245,10 @@ static CDVUIInAppBrowser* instance = nil;
         NSLog(@"Tried to show IAB after it was closed.");
         return;
     }
-    if (_previousStatusBarStyle != -1) {
-        NSLog(@"Tried to show IAB while already shown");
-        return;
-    }
+    // if (_previousStatusBarStyle != -1) {
+    //     NSLog(@"Tried to show IAB while already shown");
+    //     return;
+    // }
 
     _previousStatusBarStyle = [UIApplication sharedApplication].statusBarStyle;
 

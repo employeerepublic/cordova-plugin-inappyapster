@@ -41,6 +41,7 @@
 
 @property (nonatomic, retain) CDVUIInAppBrowserViewController* inAppBrowserViewController;
 @property (nonatomic, copy) NSString* callbackId;
+@property (nonatomic, copy) NSString* alreadyOpened;
 @property (nonatomic, copy) NSRegularExpression *callbackIdPattern;
 
 + (id) getInstance;
