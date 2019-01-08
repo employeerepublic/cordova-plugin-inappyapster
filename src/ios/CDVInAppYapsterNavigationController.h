@@ -17,16 +17,11 @@
  under the License.
  */
 
-#import <WebKit/WebKit.h>
+#import <Cordova/CDVScreenOrientationDelegate.h>
 
-@interface CDVWKInAppBrowserUIDelegate : NSObject <WKUIDelegate>{
-    @private
-    UIViewController* _viewController;
-}
 
-@property (nonatomic, copy) NSString* title;
+@interface CDVInAppYapsterNavigationController : UINavigationController
 
-- (instancetype)initWithTitle:(NSString*)title;
--(void) setViewController:(UIViewController*) viewController;
+@property (nonatomic, weak) id <CDVScreenOrientationDelegate> orientationDelegate;
 
 @end

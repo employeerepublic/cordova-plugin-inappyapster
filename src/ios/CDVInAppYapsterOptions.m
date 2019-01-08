@@ -17,9 +17,9 @@
  under the License.
  */
 
-#import "CDVInAppBrowserOptions.h"
+#import "CDVInAppYapsterOptions.h"
 
-@implementation CDVInAppBrowserOptions
+@implementation CDVInAppYapsterOptions
 
 - (id)init
 {
@@ -52,9 +52,9 @@
     return self;
 }
 
-+ (CDVInAppBrowserOptions*)parseOptions:(NSString*)options
++ (CDVInAppYapsterOptions*)parseOptions:(NSString*)options
 {
-    CDVInAppBrowserOptions* obj = [[CDVInAppBrowserOptions alloc] init];
+    CDVInAppYapsterOptions* obj = [[CDVInAppYapsterOptions alloc] init];
 
     // NOTE: this parsing does not handle quotes within values
     NSArray* pairs = [options componentsSeparatedByString:@","];

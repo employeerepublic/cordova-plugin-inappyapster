@@ -17,9 +17,9 @@
  under the License.
  */
 
-#import "CDVWKInAppBrowserUIDelegate.h"
+#import "CDVWKInAppYapsterUIDelegate.h"
 
-@implementation CDVWKInAppBrowserUIDelegate
+@implementation CDVWKInAppYapsterUIDelegate
 
 - (instancetype)initWithTitle:(NSString*)title
 {

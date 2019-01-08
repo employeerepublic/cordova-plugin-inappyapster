@@ -18,7 +18,7 @@
  */
 
 
-@interface CDVInAppBrowserOptions : NSObject {}
+@interface CDVInAppYapsterOptions : NSObject {}
 
 @property (nonatomic, assign) BOOL usewkwebview;
 @property (nonatomic, assign) BOOL location;
@@ -47,6 +47,6 @@
 @property (nonatomic, assign) BOOL disallowoverscroll;
 @property (nonatomic, copy) NSString* beforeload;
 
-+ (CDVInAppBrowserOptions*)parseOptions:(NSString*)options;
++ (CDVInAppYapsterOptions*)parseOptions:(NSString*)options;
 
 @end
