@@ -19,15 +19,15 @@
 -->
 
 <plugin xmlns="http://apache.org/cordova/ns/plugins/1.0"
-           id="cordova-plugin-inappbrowser"
+           id="cordova-plugin-inappyapster"
       version="3.1.0-dev">
 
-    <name>InAppBrowser</name>
-    <description>Cordova InAppBrowser Plugin</description>
+    <name>InAppYapster</name>
+    <description>Cordova InAppYapster Plugin</description>
     <license>Apache 2.0</license>
-    <keywords>cordova,in,app,browser,inappbrowser</keywords>
-    <repo>https://git-wip-us.apache.org/repos/asf/cordova-plugin-inappbrowser.git</repo>
-    <issue>https://issues.apache.org/jira/browse/CB/component/12320641</issue>
+    <keywords>cordova,in,app,browser,yapster</keywords>
+    <!-- <repo>https://git-wip-us.apache.org/repos/asf/cordova-plugin-inappbrowser.git</repo> -->
+    <!-- <issue>https://issues.apache.org/jira/browse/CB/component/12320641</issue> -->
 
     <engines>
       <engine name="cordova" version=">=3.1.0" /><!-- Needs cordova/urlutil -->
@@ -35,19 +35,19 @@
 
     <!-- android -->
     <platform name="android">
-        <js-module src="www/inappbrowser.js" name="inappbrowser">
-            <clobbers target="cordova.InAppBrowser.open" />
+        <js-module src="www/inappbrowser.js" name="inappyapster">
+            <clobbers target="cordova.InAppYapster.open" />
             <clobbers target="window.open" />
         </js-module>
         <config-file target="res/xml/config.xml" parent="/*">
-            <feature name="InAppBrowser">
-                <param name="android-package" value="org.apache.cordova.inappbrowser.InAppBrowser"/>
+            <feature name="InAppYapster">
+                <param name="android-package" value="org.apache.cordova.inappyapster.InAppBrowser"/>
             </feature>
         </config-file>
 
-        <source-file src="src/android/InAppBrowser.java" target-dir="src/org/apache/cordova/inappbrowser" />
-        <source-file src="src/android/InAppBrowserDialog.java" target-dir="src/org/apache/cordova/inappbrowser" />
-        <source-file src="src/android/InAppChromeClient.java" target-dir="src/org/apache/cordova/inappbrowser" />
+        <source-file src="src/android/InAppBrowser.java" target-dir="src/org/apache/cordova/inappyapster" />
+        <source-file src="src/android/InAppBrowserDialog.java" target-dir="src/org/apache/cordova/inappyapster" />
+        <source-file src="src/android/InAppChromeClient.java" target-dir="src/org/apache/cordova/inappyapster" />
 
         <!--  drawable src/android/resources -->
         <resource-file src="src/android/res/drawable-hdpi/ic_action_next_item.png" target="res/drawable-hdpi/ic_action_next_item.png" />
@@ -69,37 +69,37 @@
 
     <!-- ios -->
     <platform name="ios">
-        <js-module src="www/inappbrowser.js" name="inappbrowser">
-            <clobbers target="cordova.InAppBrowser.open" />
+        <js-module src="www/inappbrowser.js" name="inappyapster">
+            <clobbers target="cordova.InAppYapster.open" />
             <clobbers target="window.open" />
         </js-module>
         <config-file target="config.xml" parent="/*">
-            <feature name="InAppBrowser">
-                <param name="ios-package" value="CDVInAppBrowser" />
+            <feature name="InAppYapster">
+                <param name="ios-package" value="CDVInAppYapster" />
                 <param name="onload" value="true" />
             </feature>
-            <feature name="UIInAppBrowser">
-                <param name="ios-package" value="CDVUIInAppBrowser" />
+            <feature name="UIInAppYapster">
+                <param name="ios-package" value="CDVUIInAppYapster" />
                 <param name="onload" value="true" />
             </feature>
-            <feature name="WKInAppBrowser">
-                <param name="ios-package" value="CDVWKInAppBrowser" />
+            <feature name="WKInAppYapster">
+                <param name="ios-package" value="CDVWKInAppYapster" />
                 <param name="onload" value="true" />
             </feature>
         </config-file>
 
-        <header-file src="src/ios/CDVInAppBrowser.h" />
-	    <source-file src="src/ios/CDVInAppBrowser.m" />
-        <header-file src="src/ios/CDVInAppBrowserOptions.h" />
-        <source-file src="src/ios/CDVInAppBrowserOptions.m" />
-        <header-file src="src/ios/CDVInAppBrowserNavigationController.h" />
-        <source-file src="src/ios/CDVInAppBrowserNavigationController.m" />
-	    <header-file src="src/ios/CDVUIInAppBrowser.h" />
-	    <source-file src="src/ios/CDVUIInAppBrowser.m" />
-	    <header-file src="src/ios/CDVWKInAppBrowser.h" />
-	    <source-file src="src/ios/CDVWKInAppBrowser.m" />
-	    <header-file src="src/ios/CDVWKInAppBrowserUIDelegate.h" />
-	    <source-file src="src/ios/CDVWKInAppBrowserUIDelegate.m" />
+        <header-file src="src/ios/CDVInAppYapster.h" />
+	    <source-file src="src/ios/CDVInAppYapster.m" />
+        <header-file src="src/ios/CDVInAppYapsterOptions.h" />
+        <source-file src="src/ios/CDVInAppYapsterOptions.m" />
+        <header-file src="src/ios/CDVInAppYapsterNavigationController.h" />
+        <source-file src="src/ios/CDVInAppYapsterNavigationController.m" />
+	    <header-file src="src/ios/CDVUIInAppYapster.h" />
+	    <source-file src="src/ios/CDVUIInAppYapster.m" />
+	    <header-file src="src/ios/CDVWKInAppYapster.h" />
+	    <source-file src="src/ios/CDVWKInAppYapster.m" />
+	    <header-file src="src/ios/CDVWKInAppYapsterUIDelegate.h" />
+	    <source-file src="src/ios/CDVWKInAppYapsterUIDelegate.m" />
 
 
 	    <framework src="CoreGraphics.framework" />
