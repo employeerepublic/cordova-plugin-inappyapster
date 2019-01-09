@@ -16,7 +16,7 @@
        specific language governing permissions and limitations
        under the License.
 */
-package org.apache.cordova.inappbrowser;
+package org.apache.cordova.inappyapster;
 
 import android.annotation.SuppressLint;
 import android.annotation.TargetApi;
@@ -319,9 +319,13 @@ public class InAppBrowser extends CordovaPlugin {
                     dialog.hide();
                 }
             });
-            PluginResult pluginResult = new PluginResult(PluginResult.Status.OK);
-            pluginResult.setKeepCallback(true);
-            this.callbackContext.sendPluginResult(pluginResult);
+            if (this.callbackContext != null) {
+                PluginResult pluginResult = new PluginResult(PluginResult.Status.OK);
+                pluginResult.setKeepCallback(true);
+                this.callbackContext.sendPluginResult(pluginResult);
+            } else {
+                LOG.d(LOG_TAG, "no callbackContetx");
+            }
         }
         else {
             return false;
@@ -334,7 +338,7 @@ public class InAppBrowser extends CordovaPlugin {
      */
     @Override
     public void onReset() {
-        closeDialog();
+        //closeDialog();
     }
 
     /**
@@ -522,24 +526,25 @@ public class InAppBrowser extends CordovaPlugin {
                     return;
                 }
 
-                childView.setWebViewClient(new WebViewClient() {
-                    // NB: wait for about:blank before dismissing
-                    public void onPageFinished(WebView view, String url) {
-                        if (dialog != null) {
-                            dialog.dismiss();
-                            dialog = null;
-                        }
-                    }
-                });
+                // childView.setWebViewClient(new WebViewClient() {
+                //     // NB: wait for about:blank before dismissing
+                //     public void onPageFinished(WebView view, String url) {
+                //         if (dialog != null) {
+                //             dialog.dismiss();
+                //             dialog = null;
+                //         }
+                //     }
+                // });
+                dialog.dismiss();
                 // NB: From SDK 19: "If you call methods on WebView from any thread
                 // other than your app's UI thread, it can cause unexpected results."
                 // http://developer.android.com/guide/webapps/migrating.html#Threads
-                childView.loadUrl("about:blank");
+                //childView.loadUrl("about:blank");
 
                 try {
                     JSONObject obj = new JSONObject();
                     obj.put("type", EXIT_EVENT);
-                    sendUpdate(obj, false);
+                    sendUpdate(obj, true);
                 } catch (JSONException ex) {
                     LOG.d(LOG_TAG, "Should never happen");
                 }
@@ -769,9 +774,10 @@ public class InAppBrowser extends CordovaPlugin {
             public void run() {
 
                 // CB-6702 InAppBrowser hangs when opening more than one instance
-                if (dialog != null) {
-                    dialog.dismiss();
-                };
+                 if (dialog != null) {
+                     //dialog.dismiss();
+                     return;
+                 };
 
                 // Let's create the main dialog
                 dialog = new InAppBrowserDialog(cordova.getActivity(), android.R.style.Theme_NoTitleBar);

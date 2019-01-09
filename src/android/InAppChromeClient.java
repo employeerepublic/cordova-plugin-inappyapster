@@ -16,7 +16,7 @@
        specific language governing permissions and limitations
        under the License.
 */
-package org.apache.cordova.inappbrowser;
+package org.apache.cordova.inappyapster;
 
 import org.apache.cordova.CordovaWebView;
 import org.apache.cordova.LOG;
@@ -76,8 +76,8 @@ public class InAppChromeClient extends WebChromeClient {
      * If the client returns true, WebView will assume that the client will
      * handle the prompt dialog and call the appropriate JsPromptResult method.
      *
-     * The prompt bridge provided for the InAppBrowser is capable of executing any
-     * oustanding callback belonging to the InAppBrowser plugin. Care has been
+     * The prompt bridge provided for the InAppYapster is capable of executing any
+     * oustanding callback belonging to the InAppYapster plugin. Care has been
      * taken that other callbacks cannot be triggered, and that no other code
      * execution is possible.
      *
@@ -122,7 +122,7 @@ public class InAppChromeClient extends WebChromeClient {
             else
             {
                 // Anything else with a gap: prefix should get this message
-                LOG.w(LOG_TAG, "InAppBrowser does not support Cordova API calls: " + url + " " + defaultValue); 
+                LOG.w(LOG_TAG, "InAppYapster does not support Cordova API calls: " + url + " " + defaultValue); 
                 result.cancel();
                 return true;
             }
