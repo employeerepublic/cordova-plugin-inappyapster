@@ -35,7 +35,7 @@
 
     <!-- android -->
     <platform name="android">
-        <js-module src="www/inappbrowser.js" name="inappyapster">
+        <js-module src="www/inappyapster.js" name="inappyapster">
             <clobbers target="cordova.InAppYapster.open" />
             <clobbers target="window.open" />
         </js-module>
@@ -69,7 +69,7 @@
 
     <!-- ios -->
     <platform name="ios">
-        <js-module src="www/inappbrowser.js" name="inappyapster">
+        <js-module src="www/inappyapster.js" name="inappyapster">
             <clobbers target="cordova.InAppYapster.open" />
             <clobbers target="window.open" />
         </js-module>
@@ -106,36 +106,36 @@
     </platform>
 
     <!-- osx -->
-    <platform name="osx">
-        <js-module src="www/inappbrowser.js" name="inappbrowser">
-            <clobbers target="cordova.InAppBrowser.open" />
-            <clobbers target="window.open" />
-        </js-module>
-        <config-file target="config.xml" parent="/*">
-            <feature name="InAppBrowser">
-                <param name="osx-package" value="CDVInAppBrowser" />
-            </feature>
-        </config-file>
+    <!-- <platform name="osx"> -->
+    <!--     <js-module src="www/inappyapster.js" name="inappyapster"> -->
+    <!--         <clobbers target="cordova.InAppBrowser.open" /> -->
+    <!--         <clobbers target="window.open" /> -->
+    <!--     </js-module> -->
+    <!--     <config-file target="config.xml" parent="/*"> -->
+    <!--         <feature name="InAppBrowser"> -->
+    <!--             <param name="osx-package" value="CDVInAppBrowser" /> -->
+    <!--         </feature> -->
+    <!--     </config-file> -->
 
-        <header-file src="src/osx/CDVInAppBrowser.h" />
-        <source-file src="src/osx/CDVInAppBrowser.m" />
-    </platform>
+    <!--     <header-file src="src/osx/CDVInAppBrowser.h" /> -->
+    <!--     <source-file src="src/osx/CDVInAppBrowser.m" /> -->
+    <!-- </platform> -->
 
     <!-- windows universal apps (Windows 8.1, Windows Phone 8.1, Windows 8.0) -->
-    <platform name="windows">
-        <js-module src="www/inappbrowser.js" name="inappbrowser">
-            <clobbers target="cordova.InAppBrowser.open" />
-            <clobbers target="window.open" />
-        </js-module>
-        <js-module src="src/windows/InAppBrowserProxy.js" name="InAppBrowserProxy">
-            <runs />
-        </js-module>
-        <asset src="www/inappbrowser.css" target="css/inappbrowser.css" />
-    </platform>
+    <!-- <platform name="windows"> -->
+    <!--     <js-module src="www/inappyapster.js" name="inappyapster"> -->
+    <!--         <clobbers target="cordova.InAppBrowser.open" /> -->
+    <!--         <clobbers target="window.open" /> -->
+    <!--     </js-module> -->
+    <!--     <js-module src="src/windows/InAppBrowserProxy.js" name="InAppBrowserProxy"> -->
+    <!--         <runs /> -->
+    <!--     </js-module> -->
+    <!--     <asset src="www/inappyapster.css" target="css/inappyapster.css" /> -->
+    <!-- </platform> -->
 
     <!-- browser -->
     <platform name="browser">
-        <js-module src="www/inappbrowser.js" name="inappbrowser">
+        <js-module src="www/inappyapster.js" name="inappyapster">
             <clobbers target="cordova.InAppBrowser.open" />
             <clobbers target="window.open" />
         </js-module>
