@@ -7,31 +7,22 @@
     "id": "cordova-plugin-inappyapster",
     "platforms": [
       "android",
-      "browser",
-      "ios",
-      "osx",
-      "windows"
+      "ios"
     ]
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/apache/cordova-plugin-inappyapster"
-  },
-  "bugs": {
-    "url": "https://issues.apache.org/jira/browse/CB"
+    "url": "https://github.com/employeerepublic/cordova-plugin-inappyapster"
   },
   "keywords": [
     "cordova",
     "in",
     "app",
-    "browser",
     "inappyapster",
     "ecosystem:cordova",
     "cordova-android",
     "cordova-browser",
-    "cordova-ios",
-    "cordova-osx",
-    "cordova-windows"
+    "cordova-ios"
   ],
   "scripts": {
     "test": "npm run eslint",
