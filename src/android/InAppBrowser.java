@@ -1192,7 +1192,7 @@ public class InAppBrowser extends CordovaPlugin {
 
             if(beforeload.equals("yes")
                     //TODO handle POST requests then this condition can be removed:
-                    && !method.equals("POST"))
+                    && !"POST".equals(method))
             {
                 useBeforeload = true;
             }else if(beforeload.equals("get") && (method == null || method.equals("GET"))){
