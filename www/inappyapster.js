@@ -141,7 +141,7 @@
         let host = opts.baseUrl;
         let authToken = opts.authToken;
         let fullUrl = `${host}?lite&api-key=${authToken}&platform=${platform}`;
-        let options = "hidden=yes,location=no,beforeload=yes,hidenavigationbuttons=yes,disallowoverscroll=yes";
+        let options = "hidden=yes,location=no,beforeload=yes,hidenavigationbuttons=yes,disallowoverscroll=yes,clearcache=yes,usewkwebview=yes";
         
         strUrl = urlutil.makeAbsolute(fullUrl);
         var iab = new InAppYapster();

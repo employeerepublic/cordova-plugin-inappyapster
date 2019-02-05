@@ -71,7 +71,7 @@ static CDVWKInAppYapster* instance = nil;
 
 - (void)onReset
 {
-    [self close:nil];
+    NSLog(@".onReset() - not closing the browser window");
 }
 
 - (void)close:(CDVInvokedUrlCommand*)command
@@ -102,6 +102,12 @@ static CDVWKInAppYapster* instance = nil;
     NSString* options = [command argumentAtIndex:2 withDefault:@"" andClass:[NSString class]];
     
     self.callbackId = command.callbackId;
+    NSLog(@"open: callbackId %@", command.callbackId);
+    if (self.alreadyOpened != nil) {
+        return;
+    } else {
+        self.alreadyOpened = @"DONE";
+    }
     
     if (url != nil) {
 #ifdef __CORDOVA_4_0_0
@@ -292,10 +298,10 @@ static CDVWKInAppYapster* instance = nil;
         NSLog(@"Tried to show IAB after it was closed.");
         return;
     }
-    if (_previousStatusBarStyle != -1) {
-        NSLog(@"Tried to show IAB while already shown");
-        return;
-    }
+    // if (_previousStatusBarStyle != -1) {
+    //     NSLog(@"Tried to show IAB while already shown");
+    //     return;
+    // }
     
     if(!initHidden){
         _previousStatusBarStyle = [UIApplication sharedApplication].statusBarStyle;
@@ -1030,10 +1036,11 @@ BOOL isExiting = FALSE;
 - (void)viewDidDisappear:(BOOL)animated
 {
     [super viewDidDisappear:animated];
-    if (isExiting && (self.navigationDelegate != nil) && [self.navigationDelegate respondsToSelector:@selector(browserExit)]) {
-        [self.navigationDelegate browserExit];
-        isExiting = FALSE;
-    }
+    // if (isExiting && (self.navigationDelegate != nil) && [self.navigationDelegate respondsToSelector:@selector(browserExit)]) {
+    //     [self.navigationDelegate browserExit];
+    //     isExiting = FALSE;
+    // }
+    isExiting = FALSE;
 }
 
 - (UIStatusBarStyle)preferredStatusBarStyle

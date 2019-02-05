@@ -36,6 +36,7 @@
 @property (nonatomic, retain) CDVWKInAppYapsterViewController* inAppBrowserViewController;
 @property (nonatomic, copy) NSString* callbackId;
 @property (nonatomic, copy) NSRegularExpression *callbackIdPattern;
+@property (nonatomic, copy) NSString* alreadyOpened;
 
 + (id) getInstance;
 - (void)open:(CDVInvokedUrlCommand*)command;
